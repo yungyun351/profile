@@ -1,0 +1,73 @@
+---
+interface Props {
+    id: string;
+    title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<dialog
+    id={id}
+    class="m-auto p-0 rounded-2xl shadow-2xl backdrop:bg-slate-900/50 max-w-3xl w-[90%] open:animate-fade-in"
+>
+    <div class="bg-white p-6 md:p-8 space-y-6 max-h-[85vh] flex flex-col">
+        <div class="flex items-center justify-between border-b pb-4">
+            <h2 id={`${id}-title`} class="text-2xl font-bold text-slate-900">
+                {title}
+            </h2>
+            <button
+                type="button"
+                data-modal-close={id}
+                class="modal-close-btn size-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold transition cursor-pointer"
+            >
+                ✕
+            </button>
+        </div>
+
+        <div
+            class="overflow-y-auto pr-2 flex-1 flex flex-col justify-center items-center"
+        >
+            <slot />
+        </div>
+
+        <div class="pt-2 border-t text-right">
+            <button
+                type="button"
+                data-modal-close={id}
+                class="modal-close-btn px-5 py-2 bg-slate-800 hover:bg-slate-900 text-white text-sm font-medium rounded-xl transition cursor-pointer"
+            >
+                關閉
+            </button>
+        </div>
+    </div>
+</dialog>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const dialogs = document.querySelectorAll("dialog");
+
+        dialogs.forEach((dialog) => {
+            const dialogId = dialog.id;
+            const closeButtons = dialog.querySelectorAll(
+                `[data-modal-close="${dialogId}"]`,
+            );
+
+            closeButtons.forEach((btn) => {
+                btn.addEventListener("click", () => dialog.close());
+            });
+
+            dialog.addEventListener("click", (event) => {
+                const rect = dialog.getBoundingClientRect();
+                if (
+                    event.clientX < rect.left ||
+                    event.clientX > rect.right ||
+                    event.clientY < rect.top ||
+                    event.clientY > rect.bottom
+                ) {
+                    dialog.close();
+                }
+            });
+        });
+    });
+</script>

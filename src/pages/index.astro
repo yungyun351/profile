@@ -1,0 +1,424 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Modal from "../components/Modal.astro";
+import { calculateDuration } from "../utils/dateUtils.js";
+import profile from "../data/profile.json";
+---
+
+<Layout>
+	<div
+		class="bg-slate-50 text-slate-800 antialiased font-sans leading-relaxed"
+	>
+		<main
+			class="max-w-[1500px] mx-auto px-4 py-8 lg:py-12 grid lg:grid-cols-5 gap-8"
+		>
+			<div
+				class="grid gap-8 lg:col-span-2 lg:sticky lg:top-12 lg:self-start"
+			>
+				<section
+					class="bg-white rounded-2xl shadow-sm p-8 flex flex-col md:flex-row items-center gap-8 border border-slate-100"
+				>
+					<img
+						src={profile.info.avatar}
+						alt={profile.info.name}
+						class="size-36 rounded-full object-cover shadow-md border-4 border-white"
+					/>
+					<div class="space-y-2 text-center md:text-left flex-1">
+						<div
+							class="flex flex-col md:flex-row lg:flex-wrap items-center justify-between gap-4"
+						>
+							<div class="flex flex-wrap items-end gap-2">
+								<h1
+									class="text-3xl font-bold text-slate-900 leading-none"
+								>
+									{profile.info.name}
+								</h1>
+								<span
+									class="text-lg font-bold text-slate-500 leading-none"
+									>{profile.info.enName}</span
+								>
+							</div>
+							<div
+								class="bg-blue-50 text-sm font-medium px-3 py-1 rounded-full shrink-0"
+							>
+								{profile.info.experienceYears}
+							</div>
+						</div>
+						<p class="text-xl font-medium">{profile.info.title}</p>
+						<p
+							class="text-sm text-slate-600 flex flex-wrap justify-center md:justify-start gap-3 pt-1"
+						>
+							<span>📅 {profile.info.age}</span>
+							<span>🎓 {profile.info.education}</span>
+							<span>📍 {profile.info.location}</span>
+						</p>
+						<div
+							class="pt-2 flex justify-center md:justify-start gap-3"
+						>
+							<a
+								href={`mailto:${profile.info.email}`}
+								class="rounded-full flex items-center justify-center"
+							>
+								<svg class="size-6" viewBox="0 0 24 24">
+									<path
+										d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+									></path>
+								</svg>
+							</a>
+							<a
+								href={profile.info.github}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="rounded-full flex items-center justify-center"
+							>
+								<svg
+									class="size-6 fill-current"
+									viewBox="0 0 24 24"
+								>
+									<path
+										d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+									></path>
+								</svg>
+							</a>
+							<button
+								id="open-bio-btn"
+								class="py-2.5 px-4 modal-btn font-medium text-sm rounded-xl transition flex items-center justify-center gap-2"
+							>
+								<span>📖</span> 自傳
+							</button>
+						</div>
+					</div>
+				</section>
+
+				<section
+					class="bg-white rounded-2xl shadow-sm p-8 border border-slate-100 space-y-6"
+				>
+					<h2
+						class="text-2xl font-bold text-slate-900 border-b pb-3 mb-4"
+					>
+						作品與專業認證
+					</h2>
+
+					<div class="grid md:grid-cols-2 gap-6">
+						<div class="space-y-3">
+							<h3 class="text-lg font-semibold text-slate-800">
+								作品
+							</h3>
+							<ul class="space-y-2">
+								{
+									profile.portfolioAndCerts.projects.map(
+										(p) => (
+											<li>
+												<a
+													href={p.url}
+													target="_blank"
+													rel="noopener noreferrer"
+													class="group block p-3 rounded-lg border border-slate-200 hover:border-blue-500 transition"
+												>
+													<div class="font-medium text-blue-600 group-hover:underline flex items-center justify-between">
+														{p.name}
+													</div>
+													<p class="text-xs text-slate-500 mt-1">
+														{p.desc}
+													</p>
+												</a>
+											</li>
+										),
+									)
+								}
+							</ul>
+						</div>
+
+						<div class="space-y-3">
+							<h3 class="text-lg font-semibold text-slate-800">
+								專業證照
+							</h3>
+							<ul class="space-y-2">
+								{
+									profile.portfolioAndCerts.certifications.map(
+										(c) => (
+											<li>
+												<button
+													type="button"
+													data-cert-img={c.image}
+													data-cert-name={c.name}
+													class="cert-btn w-full p-3 rounded-lg border border-slate-200 flex justify-between items-center text-sm modal-btn"
+												>
+													<span class="font-medium text-slate-800 text-left">
+														{c.name}
+													</span>
+													<span class="text-xs bg-slate-200 px-2 py-1 rounded text-slate-600">
+														{c.year}
+													</span>
+												</button>
+											</li>
+										),
+									)
+								}
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<div class="grid gap-8 lg:col-span-3">
+				<section
+					class="bg-white rounded-2xl shadow-sm p-8 border border-slate-100 space-y-8"
+				>
+					<h2
+						class="text-2xl font-bold text-slate-900 border-b pb-3 mb-4"
+					>
+						專業技能
+					</h2>
+					<div class="space-y-2">
+						{
+							profile.skills.map((group) => (
+								<div class="space-y-2 bg-slate-50 p-2 rounded-xl">
+									<h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">
+										{group.category}
+									</h3>
+									<div class="m-0">
+										{group.items && (
+											<div class="flex flex-wrap gap-2 m-0">
+												{group.items.map((item) => (
+													<span class="bg-white border border-slate-200 text-slate-700 text-xs px-2 py-0.5 rounded cursor-default hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50/30 transition">
+														{item}
+													</span>
+												))}
+											</div>
+										)}
+									</div>
+									<div class="m-0">
+										{group.subcategories &&
+											group.subcategories.map((sub) => (
+												<div class="w-full pt-1 flex md:items-center">
+													<div class="text-xs text-slate-500 font-semibold mb-0 mr-2 shrink-0">
+														{sub.name}:
+													</div>
+													<div class="flex flex-wrap gap-2">
+														{sub.items.map(
+															(item) => (
+																<span class="bg-white border border-slate-200 text-slate-700 text-xs px-2 py-0.5 rounded cursor-default hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50/30 transition">
+																	{item}
+																</span>
+															),
+														)}
+													</div>
+												</div>
+											))}
+									</div>
+								</div>
+							))
+						}
+					</div>
+				</section>
+
+				<section
+					class="bg-white rounded-2xl shadow-sm p-8 border border-slate-100 space-y-8"
+				>
+					<h2
+						class="text-2xl font-bold text-slate-900 border-b pb-3 mb-4"
+					>
+						工作經驗
+					</h2>
+
+					<div class="space-y-10">
+						{
+							profile.workExperience.map((work, index) => (
+								<div class="relative pl-6 border-l-2 border-blue-800 space-y-4">
+									<div class="flex items-center gap-3">
+										<span class="bg-blue-800 text-white text-xs font-mono font-bold px-2 py-1 mr-1 rounded-md shadow-sm">
+											{index + 1}
+										</span>
+
+										<span class="text-sm text-slate-500 block">
+											{work.startDate} -{" "}
+											{work.endDate || "NOW"} ({" "}
+											{calculateDuration(
+												work.startDate,
+												work.endDate,
+											)}{" "}
+											)
+										</span>
+									</div>
+									<div class="flex flex-col md:flex-row justify-between">
+										<div class="flex">
+											<div>
+												<img
+													src={work.logo}
+													alt={work.company}
+													class="size-16 object-contain mr-3"
+												/>
+											</div>
+											<div class="flex flex-col justify-center">
+												<span class="text-blue-600 font-medium">
+													{work.company}
+												</span>
+												<p>{work.position}</p>
+											</div>
+										</div>
+										<div class="text-right mt-1 md:mt-0">
+											<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">
+												{work.salary}
+											</span>
+										</div>
+									</div>
+
+									<p class="text-slate-700">
+										{work.description}
+									</p>
+
+									{work.projects.length > 0 && (
+										<div class="bg-slate-50 rounded-xl p-5 space-y-3 mt-4 space-y-8">
+											{work.projects.map(
+												(proj, index) => (
+													<div class="space-y-2">
+														<div class="flex flex-col md:flex-row justify-between text-sm">
+															<span class="font-semibold text-slate-800">
+																{index + 1}.{" "}
+																{proj.name}
+															</span>
+															<span class="text-xs text-slate-500">
+																{proj.startDate}{" "}
+																-{" "}
+																{proj.endDate ||
+																	"NOW"}{" "}
+																({" "}
+																{calculateDuration(
+																	proj.startDate,
+																	proj.endDate,
+																)}{" "}
+																)
+															</span>
+														</div>
+
+														{proj.description && (
+															<p class="text-sm text-slate-700 font-medium">
+																{
+																	proj.description
+																}
+															</p>
+														)}
+														{proj.details &&
+															proj.details
+																.length > 0 && (
+																<ul class="list-disc list-inside text-sm text-slate-600 space-y-1 pl-1">
+																	{proj.details.map(
+																		(
+																			item,
+																		) => (
+																			<li>
+																				{
+																					item
+																				}
+																			</li>
+																		),
+																	)}
+																</ul>
+															)}
+
+														<div class="flex flex-wrap gap-4 text-xs text-slate-500 pt-1">
+															{proj.apServer && (
+																<span>
+																	🖥️ AP
+																	Server:{" "}
+																	<strong class="text-slate-700">
+																		{
+																			proj.apServer
+																		}
+																	</strong>
+																</span>
+															)}
+															{proj.buildTool && (
+																<span>
+																	⚙️ Build
+																	Tool:{" "}
+																	<strong class="text-slate-700">
+																		{
+																			proj.buildTool
+																		}
+																	</strong>
+																</span>
+															)}
+														</div>
+														<div class="flex flex-wrap gap-1.5 pt-1">
+															{proj.tech.map(
+																(t) => (
+																	<span class="bg-white border border-slate-200 text-slate-700 text-xs px-2 py-0.5 rounded">
+																		{t}
+																	</span>
+																),
+															)}
+														</div>
+													</div>
+												),
+											)}
+										</div>
+									)}
+								</div>
+							))
+						}
+					</div>
+				</section>
+			</div>
+
+			<Modal id="bio-modal" title="自傳">
+				<div
+					class="prose text-slate-700 whitespace-pre-line leading-relaxed text-sm w-full"
+				>
+					{profile.autobiography}
+				</div>
+			</Modal>
+
+			<Modal id="cert-modal" title="證照檢視">
+				<div
+					class="bg-slate-50 rounded-xl p-4 w-full flex justify-center items-center"
+				>
+					<img
+						id="cert-modal-img"
+						src=""
+						alt="證照圖片"
+						class="max-h-[60vh] object-contain rounded-lg shadow-sm"
+					/>
+				</div>
+			</Modal>
+		</main>
+	</div>
+</Layout>
+
+<script>
+	const bioModal = document.getElementById("bio-modal") as HTMLDialogElement;
+	const openBioBtn = document.getElementById("open-bio-btn");
+	openBioBtn?.addEventListener("click", () => bioModal?.showModal());
+
+	// 2. 控制證照圖片 Modal 開啟與動態換圖
+	const certModal = document.getElementById(
+		"cert-modal",
+	) as HTMLDialogElement;
+	const certModalImg = document.getElementById(
+		"cert-modal-img",
+	) as HTMLImageElement;
+	const certModalTitle = document.getElementById("cert-modal-title");
+	const certButtons = document.querySelectorAll(".cert-btn");
+
+	certButtons.forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const imgUrl = btn.getAttribute("data-cert-img");
+			const certName = btn.getAttribute("data-cert-name");
+
+			if (certModalImg && certName && certModalTitle) {
+				certModalImg.src = imgUrl || "";
+				certModalTitle.textContent = certName;
+				certModal?.showModal();
+			}
+		});
+	});
+</script>
+
+<style>
+	@import "../styles/global.css";
+
+	.modal-btn {
+		@apply bg-slate-50 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border border-slate-200 hover:border-blue-300 cursor-pointer;
+	}
+</style>

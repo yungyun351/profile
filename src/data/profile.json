@@ -1,0 +1,438 @@
+{
+    "info": {
+        "name": "崔永昀",
+        "enName": "Martin",
+        "title": "軟體工程師",
+        "age": "28歲",
+        "education": "國立東華大學 應用數學系 學士",
+        "location": "台北市, 台灣",
+        "experienceYears": "5年工作經驗",
+        "avatar": "/img/info/avatar.webp",
+        "email": "yungyun351@gmail.com",
+        "github": "https://github.com/yungyun351"
+    },
+    "workExperience": [
+        {
+            "logo": "/img/exps/logo_ruenxin.webp",
+            "company": "潤新資訊股份有限公司",
+            "position": "軟體工程師",
+            "startDate": "2023/03/13",
+            "endDate": "2025/08/31",
+            "salary": "月薪70,000元 / 年薪910,000元",
+            "description": "處理公司的各種接案項目。",
+            "projects": [
+                {
+                    "name": "國泰建設內部系統【驗交屋管理系統】",
+                    "description": "負責功能開發。",
+                    "startDate": "2025/04/30",
+                    "endDate": "2025/08/31",
+                    "tech": [
+                        "AWS Java SDK",
+                        "Spring Boot",
+                        "Spring Data JPA",
+                        "Spring Boot Quartz",
+                        "Apache POI",
+                        "Vue",
+                        "Element Plus",
+                        "Pinia",
+                        "Lombok"
+                    ],
+                    "apServer": "Tomcat Server",
+                    "buildTool": "Maven, NPM",
+                    "details": [
+                        "部屬至AWS EC2，並使用AWS S3儲存服務。",
+                        "開立DB Schema。",
+                        "Spring Boot Quartz排程定時處理業務資料，搭配Spring Boot Mail寄送郵件至業務人員、一般用戶。",
+                        "串接山竹簡訊API，發送至一般用戶。",
+                        "使用Apache POI產出業務EXCEL。",
+                        "基本CRUD功能，對DB資料做操作及呈現。"
+                    ]
+                },
+                {
+                    "name": "兆豐產險內部系統【關島業務資料處理系統】",
+                    "description": "負責功能開發。",
+                    "startDate": "2025/02/24",
+                    "endDate": "2025/06/25",
+                    "tech": [
+                        "Spring Boot",
+                        "Spring Data JPA",
+                        "Spring Boot Quartz",
+                        "Spring Boot Mail",
+                        "Vue",
+                        "Lombok"
+                    ],
+                    "apServer": "Tomcat Server",
+                    "buildTool": "Gradle, NPM",
+                    "details": [
+                        "Spring Boot Quartz實作相依性排程系統。",
+                        "Spring Boot Mail寄送郵件至業務人員。",
+                        "基本CRUD功能，對DB資料做操作及呈現。"
+                    ]
+                },
+                {
+                    "name": "公司內部產品【Vigi探測平台】",
+                    "description": "負責功能開發、上線及後續維運。",
+                    "startDate": "2024/12/10",
+                    "endDate": "2025/03/24",
+                    "tech": [
+                        "Spring Boot",
+                        "Spring Data JPA",
+                        "Spring Boot Quartz",
+                        "Kubernetes Client",
+                        "Vue",
+                        "Lombok",
+                        "Mailu",
+                        "Docker"
+                    ],
+                    "apServer": "Wildfly Server",
+                    "buildTool": "Maven, NPM",
+                    "details": [
+                        "Spring Boot Quartz排程定時執行探測任務。",
+                        "處理DNS, HTTP, HTTPS, ICMP, TCP, SNMP, K8S探測邏輯。",
+                        "基本CRUD功能，對DB資料做操作及呈現。",
+                        "使用Docker在公司內部、架設Wildfly Server。",
+                        "程式包版上到AP Server。",
+                        "規劃上線後的Git Flow。",
+                        "架設發信Server。",
+                        "架設公司HTTP/HTTPS反向代理Server。",
+                        "設定中華電信DNS網域解析和SSL憑證配置。"
+                    ]
+                },
+                {
+                    "name": "長榮航空內部系統【品質文件管理系統】",
+                    "description": "負責功能開發。",
+                    "startDate": "2024/11/14",
+                    "endDate": "2024/12/10",
+                    "tech": [
+                        "ASP.NET"
+                    ],
+                    "apServer": "",
+                    "buildTool": "",
+                    "details": [
+                        "基本CRUD功能，對DB資料做操作及呈現。"
+                    ]
+                },
+                {
+                    "name": "台積電內部系統【AML 維修中心管理系統】",
+                    "description": "負責UI切版的CR。",
+                    "startDate": "2024/09/01",
+                    "endDate": "2024/12/05",
+                    "tech": [
+                        "Spring Boot",
+                        "Thymeleaf"
+                    ],
+                    "apServer": "",
+                    "buildTool": "Maven",
+                    "details": [
+                        "處理UI切版的CR。"
+                    ]
+                },
+                {
+                    "name": "合作金庫外部系統【個人網路銀行】",
+                    "description": "負責舊系統的重構、上線及後續維運。",
+                    "startDate": "2023/07/27",
+                    "endDate": "2025/02/17",
+                    "tech": [
+                        "Spring Boot",
+                        "Spring Boot JMS",
+                        "Hibernate",
+                        "Angular",
+                        "Apache POI",
+                        "Lombok"
+                    ],
+                    "apServer": "IBM WebSphere",
+                    "buildTool": "Gradle, NPM",
+                    "details": [
+                        "舊程式業務邏輯分析。",
+                        "Spring Boot JMS處理行內電文。",
+                        "使用Apache POI產出業務EXCEL。",
+                        "基本CRUD功能，對DB資料做操作及呈現。",
+                        "弱點掃描程式修正。"
+                    ]
+                },
+                {
+                    "name": "紅點不動產形象網站【紅點地產平台】",
+                    "description": "負責網站上線。",
+                    "startDate": "2023/06/13",
+                    "endDate": "2023/06/20",
+                    "tech": [
+                        "Vue"
+                    ],
+                    "apServer": "Apache HTTP Server",
+                    "buildTool": "NPM",
+                    "details": [
+                        "Vultr VPS上面架設對外Apache HTTP Server。",
+                        "將已經開發的程式包版上到AP Server。",
+                        "設定中華電信DNS網域解析和SSL憑證配置。"
+                    ]
+                },
+                {
+                    "name": "合作金庫內部系統【網路銀行分行系統】",
+                    "description": "負責舊系統的重構及後續維運。",
+                    "startDate": "2023/03/13",
+                    "endDate": "2023/11/20",
+                    "tech": [
+                        "Spring Boot",
+                        "Spring Boot JMS",
+                        "Hibernate",
+                        "Angular",
+                        "PrimeNG",
+                        "Apache POI",
+                        "Lombok"
+                    ],
+                    "apServer": "IBM WebSphere",
+                    "buildTool": "Gradle, NPM",
+                    "details": [
+                        "舊程式業務邏輯分析。",
+                        "處理送審/放行機制。",
+                        "Spring Boot JMS處理行內電文。",
+                        "使用Apache POI產出業務EXCEL。",
+                        "基本CRUD功能，對DB資料做操作及呈現。",
+                        "弱點掃描程式修正。",
+                        "CR功能開發。"
+                    ]
+                }
+            ]
+        },
+        {
+            "logo": "/img/exps/logo_imps.webp",
+            "company": "穎哲資訊規劃股份有限公司",
+            "position": "全端工程師",
+            "startDate": "2021/11/15",
+            "endDate": "2023/03/10",
+            "salary": "月薪50,000元 / 年薪700,000元",
+            "description": "開發、維護公司B2B專案，曾參與的專案如下。",
+            "projects": [
+                {
+                    "name": "富邦產險系統【數位保險APP】",
+                    "description": "負責維運。",
+                    "startDate": "2022/05/01",
+                    "endDate": "2023/03/10",
+                    "tech": [
+                        "Flutter",
+                        "Bloc"
+                    ],
+                    "apServer": "",
+                    "buildTool": "Flutter SDK",
+                    "details": [
+                        "CR功能開發。",
+                        "處理交付給客戶的差異檔。"
+                    ]
+                },
+                {
+                    "name": "富邦產險系統【數位要保書】",
+                    "description": "負責開發、上線及後續維運。",
+                    "startDate": "2021/11/15",
+                    "endDate": "2023/03/10",
+                    "tech": [
+                        "Spring Boot",
+                        "Spring Boot Mail",
+                        "Mybatis",
+                        "Vue",
+                        "Element plus",
+                        "iText",
+                        "Apache POI"
+                    ],
+                    "apServer": "IBM WebSphere",
+                    "buildTool": "Maven, NPM",
+                    "details": [
+                        "使用iText及Apache POI產出業務PDF、EXCEL。",
+                        "Spring Boot Mail寄送郵件至一般用戶。",
+                        "基本CRUD功能，對DB資料做操作及呈現。",
+                        "弱點掃描程式修正。",
+                        "處理交付給客戶的差異檔。"
+                    ]
+                }
+            ]
+        },
+        {
+            "logo": "/img/exps/logo_techlink.webp",
+            "company": "緯德科技股份有限公司",
+            "position": "全端工程師",
+            "startDate": "2020/7/01",
+            "endDate": "2021/06/30",
+            "salary": "月薪36,000元 / 年薪504,000元",
+            "description": "派駐至客戶端，完成客戶的程式需求，曾參與的專案如下。",
+            "projects": [
+                {
+                    "name": "勞保局內部系統【勞工退休金提繳系統】",
+                    "description": "對舊系統做重構及整合。",
+                    "startDate": "2021/01/18",
+                    "endDate": "2021/06/30",
+                    "tech": [
+                        "Spring MVC",
+                        "Thymeleaf",
+                        "Bootstrap",
+                        "Quartz",
+                        "JUnit",
+                        "JQuery",
+                        "iText",
+                        "Apache POI",
+                        "Apache FTPClient"
+                    ],
+                    "apServer": "IBM WebSphere",
+                    "buildTool": "Maven, NPM",
+                    "details": [
+                        "Quartz排程定時處理業務資料，並搭配Java Mail寄送郵件至業務人員。",
+                        "使用iText及Apache POI產出業務PDF、EXCEL。",
+                        "使用Apache FTPClient做取檔及碰檔。",
+                        "基本CRUD功能，對DB資料做操作及呈現。",
+                        "對Api做JUnit單元測試。"
+                    ]
+                },
+                {
+                    "name": "國泰人壽內部系統【數據字典】",
+                    "description": "對舊系統做重構，以及測試階段需求單的處理。",
+                    "startDate": "2020/10/26",
+                    "endDate": "2020/12/31",
+                    "tech": [
+                        "Vue",
+                        "e-BAF(國壽的java MVC框架)",
+                        "Bootstrap",
+                        "JUnit",
+                        "JQuery",
+                        "Axios"
+                    ],
+                    "apServer": "JBoss",
+                    "buildTool": "NPM",
+                    "details": [
+                        "基本CRUD功能，對DB資料做操作及呈現。",
+                        "對每個DB請求做JUnit單元測試。"
+                    ]
+                }
+            ]
+        }
+    ],
+    "portfolioAndCerts": {
+        "projects": [
+            {
+                "name": "個人網站",
+                "url": "https://martt.idv.tw/",
+                "desc": "這裡是我進行技術實踐與創意開發的空間。"
+            },
+            {
+                "name": "Microsoft Store - GlassTrans",
+                "url": "https://apps.microsoft.com/detail/9p4dtf23q1bb?hl=zh-TW&gl=TW&ocid=pdpshare",
+                "desc": "Windows 離線螢幕翻譯工具。"
+            },
+            {
+                "name": "Google Play - GlassTrans",
+                "url": "https://play.google.com/store/apps/details?id=tw.idv.martt.glasstrans&pcampaignid=web_share",
+                "desc": "Android 離線照片翻譯工具。"
+            }
+        ],
+        "certifications": [
+            {
+                "name": "Oracle OCPJP - Java SE 8 專業認證",
+                "year": "2021",
+                "image": "/img/certs/ocpjp.webp"
+            },
+            {
+                "name": "Oracle OCAJP - Java SE 8 專業認證",
+                "year": "2020",
+                "image": "/img/certs/ocajp.webp"
+            }
+        ]
+    },
+    "autobiography": "　　我是崔永昀，目前28歲，畢業於國立東華大學應用數學系，有全端工程師五年的工作經驗。\n\n　　在學期間，我接觸很多種程式語言，因而對程式產生了濃厚的興趣，於是畢業後我報名了補習班的程式課程，利用服兵役前後的時間學習程式語言，並考取了OCPJP證照。經過數學系的訓練，我更擅長嚴謹的邏輯推導，遇到難題時會想要追根究底，直到找出問題關鍵點，這也是我能持續自學的動力。\n\n　　我在工作中陸續參與過多個專案，接觸了不同專案架構的技術與知識，透過持續的技術迭代與實戰累積，我掌握了從前端互動、後端架構設計到雲端部署的開發生命週期。這些經驗不僅讓我在面對陌生技術或老舊系統時能快速上手，更是我能持續穩定交付程式的關鍵。\n\n　　我認為現在這個時代軟體工程師的核心目標不再只是【寫出乾淨高效的程式碼】，而是可以【提出軟體解決方案】，於是我在過去一年離開了職場，我嘗試了一項獨立開發計畫，開始針對生活中的各種問題難點，提出軟體形式的解決方案，我架設了我的個人網站，並開發了多款App工具，從 Windows 桌面應用到安卓移動裝置，並且最終在 Microsoft store 和 Google Play 分別都上架了1款工具，這不只是單純的技術實作，而是一次 B2C 產品落地驗證，對我來說是非常有趣的實戰演練。相關資源都在我的附件，由於我上架的APP有設定付費、且優惠碼為一次性，如有需要免費優惠碼請聯絡我。這些應用都是由我獨立完成，可以代表我目前的個人能力。\n\n　　我相信了解的越多越能幫助我挑戰不同的問題，期許自己能與專案團隊一同成長，為公司創造最大的收益。感謝您撥冗閱讀我的自傳，期待有進一步面試的機會，謝謝！",
+    "skills": [
+        {
+            "category": "Programming Languages",
+            "items": [
+                "Java",
+                "Dart",
+                "Rust",
+                "JavaScript",
+                "TypeScript",
+                "HTML",
+                "CSS",
+                "SCSS"
+            ]
+        },
+        {
+            "category": "Front-end",
+            "subcategories": [
+                {
+                    "name": "Frameworks",
+                    "items": [
+                        "Vue",
+                        "Angular",
+                        "Nuxt",
+                        "Astro"
+                    ]
+                },
+                {
+                    "name": "UI Frameworks",
+                    "items": [
+                        "Vuetify",
+                        "Element plus",
+                        "Reka UI",
+                        "PrimeNG",
+                        "Tailwind",
+                        "Bootstrap"
+                    ]
+                },
+                {
+                    "name": "Other",
+                    "items": [
+                        "Pinia",
+                        "Jquery",
+                        "Axios"
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Back-end",
+            "subcategories": [
+                {
+                    "name": "Frameworks",
+                    "items": [
+                        "Spring Boot",
+                        "Spring MVC",
+                        "Node.js"
+                    ]
+                },
+                {
+                    "name": "ORM",
+                    "items": [
+                        "Spring Data JPA",
+                        "Hibernate",
+                        "MyBatis",
+                        "Drizzle"
+                    ]
+                },
+                {
+                    "name": "Other",
+                    "items": [
+                        "Apache POI",
+                        "iText",
+                        "Apache FTPClient",
+                        "JUnit",
+                        "Lombok",
+                        "Quartz"
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Cross-Platform",
+            "items": [
+                "Tauri",
+                "Flutter"
+            ]
+        },
+        {
+            "category": "Tools",
+            "items": [
+                "Eclipse",
+                "Visual Studio Code",
+                "Android Studio",
+                "DBeaver",
+                "Sourcetree",
+                "PuTTY",
+                "Docker"
+            ]
+        }
+    ]
+}
